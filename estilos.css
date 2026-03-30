@@ -1,66 +1,96 @@
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #3a0a6a, #1f0436);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor */
 .contenedor {
-    width: 300px;
-    margin: 50px auto;
-    border: 1px solid #ccc;
-    padding: 20px;
-}
-
-header {
+    width: 360px;
+    background-color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     text-align: center;
 }
 
+/* LOGO */
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    display: block;
+    margin: 0 auto 25px auto;
+    width: 260px; /* MÁS GRANDE */
 }
 
+/* Título */
 h1 {
-    text-align: center;
-    margin-top: 30px;
+    color: #3a0a6a;
+    margin-bottom: 25px;
+    font-size: 24px;
 }
 
+/* Formulario */
 form {
-    margin-top: 30px;
+    text-align: left;
 }
 
 label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
     display: block;
-    margin-bottom: 5px;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 11px;
+    margin-bottom: 18px;
     border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
+/* Botón */
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    padding: 12px;
+    background-color: #f5b400;
+    color: #3a0a6a;
     border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #e0a200;
+}
+
+/* Enlaces */
+.enlaces {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .enlaces a {
-    text-decoration: none;
-    color: blue;
+    color: #3a0a6a;
     font-weight: bold;
-}
-
-a {
     text-decoration: none;
-    color: #333;
 }
 
-span {
+.enlaces span {
     margin: 0 10px;
+    color: #999;
+}
+
+.enlaces a:hover {
+    text-decoration: underline;
 }
