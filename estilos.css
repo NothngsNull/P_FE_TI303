@@ -9,11 +9,12 @@ body {
     min-height: 100vh;
     background: linear-gradient(135deg, #3a0a6a, #1f0436);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 50px 20px;
 }
 
-/* Contenedor */
+/* Contenedor estándar */
 .contenedor {
     width: 360px;
     background-color: #ffffff;
@@ -23,11 +24,17 @@ body {
     text-align: center;
 }
 
+/* Hacemos el contenedor más ancho para que quepan 2 columnas en el registro */
+.contenedor-registro {
+    width: 750px; 
+    max-width: 100%;
+}
+
 /* LOGO */
 .logo {
     display: block;
     margin: 0 auto 25px auto;
-    width: 260px; /* MÁS GRANDE */
+    width: 260px; 
 }
 
 /* Título */
@@ -37,7 +44,7 @@ h1 {
     font-size: 24px;
 }
 
-/* Formulario */
+/* Formulario general */
 form {
     text-align: left;
 }
@@ -49,12 +56,68 @@ label {
     display: block;
 }
 
-input {
+/* AQUÍ ESTÁ LA MAGIA: Agrupamos input y select para que tengan el mismo tamaño y separación */
+input, select {
     width: 100%;
     padding: 11px;
-    margin-bottom: 18px;
+    margin-bottom: 18px; /* Esto evita que choquen con el elemento de abajo */
     border: 1px solid #ccc;
     border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Estilos específicos para select (la flechita personalizada morada) */
+select {
+    background-color: #ffffff;
+    color: #333;
+    cursor: pointer;
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%233a0a6a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+}
+
+/* Iluminación de los bordes al hacer clic */
+input:focus, select:focus {
+    outline: none;
+    border-color: #f5b400;
+    box-shadow: 0 0 5px rgba(245, 180, 0, 0.4);
+}
+
+/* Contenedor flex para las columnas */
+.form-columnas {
+    display: flex;
+}
+
+/* Base para ambas columnas */
+.columna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos específicos para la columna izquierda (Línea vertical) */
+.columna-izq {
+    padding-right: 25px;
+    border-right: 2px solid #e0d4eb; 
+}
+
+/* Estilos específicos para la columna derecha */
+.columna-der {
+    padding-left: 25px;
+}
+
+/* Línea separadora horizontal */
+.separador-horizontal {
+    border: 0;
+    height: 2px;
+    background-color: #e0d4eb;
+    margin: 5px 0 20px 0; 
+    border-radius: 2px; 
 }
 
 /* Botón */
@@ -68,6 +131,7 @@ button {
     font-weight: bold;
     font-size: 15px;
     cursor: pointer;
+    margin-top: 15px; /* NUEVO: Agregamos este margen para despegarlo de las columnas */
 }
 
 button:hover {
@@ -93,4 +157,23 @@ button:hover {
 
 .enlaces a:hover {
     text-decoration: underline;
+}
+
+/* Diseño Responsive: Pantallas pequeñas */
+@media (max-width: 650px) {
+    .form-columnas {
+        flex-direction: column;
+    }
+    
+    .columna-izq {
+        border-right: none; 
+        border-bottom: 2px solid #e0d4eb; 
+        padding-right: 0;
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+
+    .columna-der {
+        padding-left: 0;
+    }
 }
